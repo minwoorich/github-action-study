@@ -1,0 +1,18 @@
+==== *카테고리로 조회*
+----
+기본 정렬은 상품 등록 일자 기준으로 최신순 입니다.
+paging 관련 파라미터는 기본값 첫 페이지, 60개의 상품 입니다.
+----
+.*진입점*
+image:../image/product/req_product_search_by_category.png[]
+
+.*결과 화면*
+image:../image/product/req_proudct_search_by_category2.png[]
+
+.*HTTP Request*
+include::{snippets}/product-search-by-category/http-request.adoc[]
+include::{snippets}/product-search-by-category/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/product-search-by-category/http-response.adoc[]
+include::{snippets}/product-search-by-category/response-fields.adoc[]

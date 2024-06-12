@@ -1,0 +1,9 @@
+==== *등록된 위시리스트 조회*
+
+.*HTTP Request*
+include::{snippets}/find-wishlist/http-request.adoc[]
+include::{snippets}/find-wishlist/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/find-wishlist/http-response.adoc[]
+include::{snippets}/find-wishlist/response-fields.adoc[]

@@ -1,0 +1,37 @@
+=== *입력값 유효성*
+
+*논리적 에러*
+// include::{snippets}/error-invalid-request-field/http-response.adoc[]
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 251
+
+{
+  "code" : 400,
+  "status" : "BAD_REQUEST",
+  "path" : "POST/errors",
+  "errorCode" : "INVALID_INPUT_VALUE",
+  "message" : "[age] 은/는 1이상 100이하만 가능합니다 [입력한 값:0]",
+  "timestamp" : "2024-03-18T20:58:44.2465026"
+}
+----
+
+*타입 에러*
+// include::{snippets}/error-invalid-request-field-type/http-response.adoc[]
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 245
+
+{
+  "code" : 400,
+  "status" : "BAD_REQUEST",
+  "path" : "POST/errors",
+  "errorCode" : "INVALID_INPUT_VALUE",
+  "message" : "[int] 타입의 값이 필요합니다. [입력한 값:나이]",
+  "timestamp" : "2024-03-18T20:58:44.2185026"
+}
+----

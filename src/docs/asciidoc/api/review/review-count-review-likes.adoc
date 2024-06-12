@@ -1,0 +1,9 @@
+==== *리뷰 좋아요 총갯수 조회*
+
+.*HTTP Request*
+include::{snippets}/review-count-review-likes/http-request.adoc[]
+include::{snippets}/review-count-review-likes/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/review-count-review-likes/http-response.adoc[]
+include::{snippets}/review-count-review-likes/response-fields.adoc[]

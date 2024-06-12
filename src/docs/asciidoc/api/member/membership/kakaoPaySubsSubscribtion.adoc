@@ -1,0 +1,8 @@
+==== *정기결제 2회차 결제*
+
+.*HTTP Request*
+include::{snippets}/kakaoPaySubs-subsApproved/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/kakaoPaySubs-subsApproved/http-response.adoc[]
+include::{snippets}/kakaoPaySubs-subsApproved/response-fields.adoc[]

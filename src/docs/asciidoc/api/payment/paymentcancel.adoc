@@ -1,0 +1,18 @@
+==== *결제 취소*
+
+.*진입점 - 1 (QR 찍기 전)*
+image:../image/payment/req_payment_cancel1.png[]
+
+.*진입점 - 2 (QR 찍은 후)*
+image:../image/payment/req_payment_cancel2.png[]
+
+.*반환*
+image:../image/payment/resp_payment_cancel.png[]
+
+.*HTTP Request*
+include::{snippets}/payment-cancel/http-request.adoc[]
+include::{snippets}/payment-cancel/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/payment-cancel/http-response.adoc[]
+include::{snippets}/payment-cancel/response-fields.adoc[]

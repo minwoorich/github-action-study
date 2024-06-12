@@ -1,0 +1,9 @@
+==== *리뷰 삭제*
+
+.*HTTP Request*
+include::{snippets}/review-delete/http-request.adoc[]
+include::{snippets}/review-delete/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/review-delete/http-response.adoc[]
+include::{snippets}/review-delete/response-fields.adoc[]

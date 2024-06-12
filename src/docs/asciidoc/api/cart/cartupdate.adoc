@@ -1,0 +1,13 @@
+=== *장바구니 수량 수정*
+
+.*HTTP Request*
+include::{snippets}/cart-update/http-request.adoc[]
+include::{snippets}/cart-update/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/cart-update/http-response.adoc[]
+include::{snippets}/cart-update/response-fields.adoc[]
+
+.*Error Response*
+*리소스 찾을 수 없음*
+include::{snippets}/cart-update-resource-notfound-error/http-response.adoc[]

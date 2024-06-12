@@ -1,0 +1,8 @@
+=== *카테고리 전체 조회*
+
+.*HTTP Request*
+include::{snippets}/category-get-totalinfo/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/category-get-totalinfo/http-response.adoc[]
+include::{snippets}/category-get-totalinfo/response-fields.adoc[]

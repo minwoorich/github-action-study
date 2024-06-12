@@ -1,0 +1,9 @@
+==== *주문 반품 상세 조회*
+
+.*HTTP Request*
+include::{snippets}/order-return-detail/http-request.adoc[]
+include::{snippets}/order-return-detail/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/order-return-detail/http-response.adoc[]
+include::{snippets}/order-return-detail/response-fields.adoc[]

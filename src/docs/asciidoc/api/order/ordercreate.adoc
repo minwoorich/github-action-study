@@ -1,0 +1,21 @@
+==== *주문 생성*
+
+.*HTTP Request*
+include::{snippets}/order-create/http-request.adoc[]
+include::{snippets}/order-create/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/order-create/http-response.adoc[]
+include::{snippets}/order-create/response-fields.adoc[]
+
+.*ERROR Response*
+재고 소진
+include::{snippets}/order-create-outofstock-error/http-response.adoc[]
+이미 사용한 쿠폰
+include::{snippets}/order-create-couponalreadyused-error/http-response.adoc[]
+쿠폰 최소 주문 금액 조건
+include::{snippets}/order-create-couponconditionviolation-error/http-response.adoc[]
+유효기간 지난 쿠폰
+include::{snippets}/order-create-couponexpired-error/http-response.adoc[]
+상품과 호환되지 않는 쿠폰
+include::{snippets}/order-create-couponincompatible-error/http-response.adoc[]

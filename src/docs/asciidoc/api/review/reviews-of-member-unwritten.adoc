@@ -1,0 +1,9 @@
+==== *멤버의 모든 리뷰미작성 주문상세 조회*
+
+.*HTTP Request*
+include::{snippets}/reviews-of-member-unwritten/http-request.adoc[]
+include::{snippets}/reviews-of-member-unwritten/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/reviews-of-member-unwritten/http-response.adoc[]
+include::{snippets}/reviews-of-member-unwritten/response-fields.adoc[]

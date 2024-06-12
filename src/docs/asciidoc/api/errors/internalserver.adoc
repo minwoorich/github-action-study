@@ -1,0 +1,18 @@
+=== *서버 에러*
+//
+// include::{snippets}/error-internal-server/http-response.adoc[]
+[source,http,options="nowrap"]
+----
+HTTP/1.1 500 Internal Server Error
+Content-Type: application/json
+Content-Length: 196
+
+{
+  "code" : 500,
+  "status" : "INTERNAL_SERVER_ERROR",
+  "path" : "POST/server-errors",
+  "errorCode" : "NO_ERROR_CODE",
+  "message" : null,
+  "timestamp" : "2024-03-18T20:58:44.2681898"
+}
+----

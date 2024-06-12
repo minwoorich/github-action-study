@@ -1,0 +1,89 @@
+==== 인증관련 오류 응답 안내(전체 API 해당)
+
+.*토큰 관련 인증 오류 Response*
+
+- 토큰 유효기간 만료
+[source,http,options="nowrap"]
+----
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+Content-Length: 200
+
+{
+  "code": 401,
+  "status": "Unauthorized",
+  "path": "POST/request/uri",
+  "errorCode": "EXPIRED_JWT_ERROR",
+  "message": "토큰이 만료되었습니다.",
+  "timeStamp": "2024-02-28T13:53:33.115422"
+}
+----
+
+- 잘못된 형식의 토큰으로 요청(일부 누락, 오타, payload 가 다른 경우)
+[source,http,options="nowrap"]
+----
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+Content-Length: 200
+
+{
+  "code": 401,
+  "status": "Unauthorized",
+  "path": "POST/request/uri",
+  "errorCode": "SIGNATURE_JWT_ERROR",
+  "message": "잘못된 형식의 토큰입니다.",
+  "timeStamp": "2024-02-28T13:52:57.891127"
+}
+----
+
+- 토큰이 아닌 다른 텍스트 등으로 요청한 경우
+[source,http,options="nowrap"]
+----
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+Content-Length: 200
+
+{
+  "code": 401,
+  "status": "Unauthorized",
+  "path": "POST/request/uri",
+  "errorCode": "MALFORMED_JWT_ERROR",
+  "message": "JWT 토큰이 아닙니다.",
+  "timeStamp": "2024-02-28T13:55:07.980616"
+}
+----
+
+- 기타 JWT 오류
+[source,http,options="nowrap"]
+----
+HTTP/1.1 401 Unauthorized
+Content-Type: application/json
+Content-Length: 200
+
+{
+  "code": 401,
+  "status": "Unauthorized",
+  "path": "POST/request/uri",
+  "errorCode": "UNSUPPORTED_JWT_ERROR",
+  "message": "오류 메세지",
+  "timeStamp": "2024-02-28T13:55:07.980616"
+}
+----
+
+- access token 을 사용해야하는데 refresh token 으로 요청한 경우 또는 그 반대의 경우
+- 용도에 맞게 사용하지 않을 경우 토큰 정보를 삭제 하므로 재 로그인이 필요 함.
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 200
+
+{
+  "code": 401,
+  "status": "Unauthorized",
+  "path": "/auth/re-issue",
+  "errorCode": "BAD_CREDENTIALS_ERROR",
+  "message": "로그인 정보가 일치하지 않습니다.",
+  "timeStamp": "2024-02-28T13:49:22.567877"
+}
+----

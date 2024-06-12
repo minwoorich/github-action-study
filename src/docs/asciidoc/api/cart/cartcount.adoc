@@ -1,0 +1,9 @@
+=== *장바구니 수량 조회*
+
+.*HTTP Request*
+include::{snippets}/cart-count/http-request.adoc[]
+
+
+.*HTTP Response*
+include::{snippets}/cart-count/http-response.adoc[]
+include::{snippets}/cart-count/response-fields.adoc[]

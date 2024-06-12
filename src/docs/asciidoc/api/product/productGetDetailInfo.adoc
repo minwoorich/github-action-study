@@ -1,0 +1,15 @@
+==== *상품 상세 조회*
+
+.*진입점*
+image:../image/product/req_product_get_detail_info.png[]
+
+.*결과 화면*
+image:../image/product/req_product_get_detail_info2.png[]
+
+.*HTTP Request*
+include::{snippets}/product-get-detailinfo/http-request.adoc[]
+include::{snippets}/product-get-detailinfo/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/product-get-detailinfo/http-response.adoc[]
+include::{snippets}/product-get-detailinfo/response-fields.adoc[]

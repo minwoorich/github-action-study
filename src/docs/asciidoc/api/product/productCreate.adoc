@@ -1,0 +1,11 @@
+==== *상품 등록*
+.*진입점*
+image:../image/product/req_product_create.png[]
+
+.*HTTP Request*
+include::{snippets}/product-create/http-request.adoc[]
+include::{snippets}/product-create/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/product-create/http-response.adoc[]
+include::{snippets}/product-create/response-fields.adoc[]

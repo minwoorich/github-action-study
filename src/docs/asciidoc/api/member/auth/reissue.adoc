@@ -1,0 +1,15 @@
+==== *토큰 재발급*
+
+[text]
+----
+- accessToken 만료 시 refreshToken 으로 accessToken 재발급 요청.
+- accessToken, refreshToken 둘 다 재발급.
+- 저장된 Token 요청이 아닐 시, 해당 유저의 모든 토큰을 삭제함.
+----
+
+.*HTTP Request*
+include::{snippets}/auth-re-issue/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/auth-re-issue/http-response.adoc[]
+include::{snippets}/auth-re-issue/response-fields.adoc[]

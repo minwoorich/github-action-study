@@ -1,0 +1,18 @@
+==== *회원 가입*
+
+image:../image/signup.png[]
+
+.*HTTP Request*
+include::{snippets}/auth-sign-up/http-request.adoc[]
+include::{snippets}/auth-sign-up/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/auth-sign-up/http-response.adoc[]
+include::{snippets}/auth-sign-up/response-fields.adoc[]
+
+.*HTTP Error Response*
+- email, phoneNo 등 형식 오류
+include::{snippets}/auth-sign-up-valid-err/http-response.adoc[]
+
+- 중복된 이메일로 회원가입 시도
+include::{snippets}/auth-sign-up-email-dup/http-response.adoc[]

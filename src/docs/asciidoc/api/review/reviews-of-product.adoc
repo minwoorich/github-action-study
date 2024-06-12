@@ -1,0 +1,10 @@
+==== *상품의 모든 리뷰들 조회*
+
+.*HTTP Request*
+include::{snippets}/reviews-of-product/http-request.adoc[]
+* sortedBy는 createdAt(최신순) 또는 likes(좋아요많은순) 입니다.
+include::{snippets}/reviews-of-product/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/reviews-of-product/http-response.adoc[]
+include::{snippets}/reviews-of-product/response-fields.adoc[]

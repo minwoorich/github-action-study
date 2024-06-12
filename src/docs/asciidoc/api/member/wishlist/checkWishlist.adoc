@@ -1,0 +1,8 @@
+==== *위시리스트 등록여부 조회*
+
+.*HTTP Request*
+include::{snippets}/check-wishlist/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/check-wishlist/http-response.adoc[]
+include::{snippets}/check-wishlist/response-fields.adoc[]

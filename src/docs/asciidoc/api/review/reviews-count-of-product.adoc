@@ -1,0 +1,9 @@
+==== *상품의 모든 리뷰 총갯수 조회*
+
+.*HTTP Request*
+include::{snippets}/reviews-count-of-product/http-request.adoc[]
+include::{snippets}/reviews-count-of-product/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/reviews-count-of-product/http-response.adoc[]
+include::{snippets}/reviews-count-of-product/response-fields.adoc[]

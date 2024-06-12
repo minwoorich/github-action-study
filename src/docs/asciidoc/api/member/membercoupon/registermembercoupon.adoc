@@ -1,0 +1,7 @@
+==== *회원이 쿠폰 등록하기*
+
+.*HTTP Request*
+include::{snippets}/member-register-coupon/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/member-register-coupon/http-response.adoc[]

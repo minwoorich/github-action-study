@@ -1,0 +1,76 @@
+=== *잘못된 URI 요청*
+
+*URI 오타*
+// include::{snippets}/error-invalid-uri/http-response.adoc[]
+[source,http,options="nowrap"]
+----
+HTTP/1.1 404 Not Found
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Content-Type: application/json
+Content-Length: 215
+
+{
+  "code" : 404,
+  "status" : "NOT_FOUND",
+  "path" : "GET/errorssssss",
+  "errorCode" : "RESOUCRE_NOT_FOUND",
+  "message" : "No static resource errorssssss.",
+  "timestamp" : "2024-03-18T20:58:44.1965021"
+}
+----
+
+*PathVariable 에러*
+// include::{snippets}/error-method-argument-type-mismatch/http-response.adoc[]
+[source,http,options="nowrap"]
+----
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+Content-Length: 289
+
+{
+  "code" : 404,
+  "status" : "NOT_FOUND",
+  "path" : "GET/errors/r",
+  "errorCode" : "RESOUCRE_NOT_FOUND",
+  "message" : "Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; For input string: \"r\"",
+  "timestamp" : "2024-03-18T20:58:44.154405"
+}
+----
+
+*QueryParameter 에러*
+// include::{snippets}/error-invalid-query-parameter/http-response.adoc[]
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 261
+
+{
+  "code" : 400,
+  "status" : "BAD_REQUEST",
+  "path" : "GET/errors",
+  "errorCode" : "INVALID_INPUT_VALUE",
+  "message" : "Required request parameter 'size' for method parameter type Long is not present",
+  "timestamp" : "2024-03-18T20:58:44.1713817"
+}
+----
+
+*Http 메서드 에러*
+// include::{snippets}/error-method-not-allowed/http-response.adoc[]
+[source,http,options="nowrap"]
+----
+HTTP/1.1 405 Method Not Allowed
+Content-Type: application/json
+Content-Length: 244
+
+{
+  "code" : 405,
+  "status" : "METHOD_NOT_ALLOWED",
+  "path" : "POST/errors/methodNotAllowed",
+  "errorCode" : "METHOD_NOT_ALLOWED",
+  "message" : "Request method 'POST' is not supported",
+  "timestamp" : "2024-03-18T20:58:44.1270083"
+}
+----

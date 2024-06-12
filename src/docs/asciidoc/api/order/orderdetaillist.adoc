@@ -1,0 +1,15 @@
+==== *주문 상세 조회*
+
+.*진입점*
+image:../image/order/select/req_order_detail_list.png[]
+
+.*반환*
+image:../image/order/select/resp_order_detail_list.png[]
+
+.*HTTP Request*
+include::{snippets}/order-detail-list/http-request.adoc[]
+include::{snippets}/order-detail-list/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/order-detail-list/http-response.adoc[]
+include::{snippets}/order-detail-list/response-fields.adoc[]

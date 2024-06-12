@@ -1,0 +1,7 @@
+==== *정기결제 0회차 승인*
+
+.*HTTP Request*
+include::{snippets}/kakaoPaySubs-Approved/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/kakaoPaySubs-Approved/http-response.adoc[]

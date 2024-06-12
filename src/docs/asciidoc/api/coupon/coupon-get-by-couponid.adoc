@@ -1,0 +1,7 @@
+=== *쿠폰 조회*
+
+.*HTTP Request*
+include::{snippets}/coupon-get-by-couponId/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/coupon-get-by-couponId/response-body.adoc[]

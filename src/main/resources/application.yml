@@ -1,0 +1,243 @@
+spring:
+  profiles:
+    default: dev
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: local
+
+  # 스프링부트가 제공하는 내장 DB (H2, HSQL, Derdy) 를 사용할 경우 필요 없지만
+  # 외부 DB를 사용 할 경우 true 로 해놔야 script(schema.sql, data.sql) 파일을 실행함
+  sql:
+    init:
+      # 이거 없으면 mysql 인식 못함
+      platform: mysql
+      mode: never
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/MarketBridge
+    username: objects
+    password: 1234
+
+  jpa:
+    show-sql: true
+
+    # (2.5~) Hibernate 초기화 이후 data-mysql.sql 실행
+    # 하이버네이트가 테이블들을 생성해주고, data.sql 로 데이터들을 초기화해줌 (ddl-auto 사용할때만 필요한 설정, schema.sql 따로 사용하면 필요없음)
+    # defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+logging:
+  level:
+    org.hibernate.sql: debug
+  file:
+    path:
+      all: src/main/resources/logs/all
+      info: src/main/resources/logs/info
+      warn: src/main/resources/logs/warn
+      error: src/main/resources/logs/error
+  logback:
+    rollingpolicy:
+      max-history: 7 #7개 쌓이면 삭제
+      max-file-size: 10MB #파일 한개당 최대 사이즈
+      total-size-cap: 1GB #모든 로그 파일 사이즈
+      clean-history-on-start: true #서버 껐다 킬때마다 이전 로그 파일 삭제
+
+#   [타임스탬프][쓰레드명][UUID][로깅레벨][메시지]
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS, Asia/Seoul}){green} %clr([%20.20thread]){cyan} %clr([%X{traceId}]){magenta} %clr(%-5level) %clr(-){faint} %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS, Asia/Seoul} [%20.20thread] [%X{traceId}] %-5level - %msg%n"
+
+# 액츄에이터 정보
+management:
+  info:
+    java:
+      enabled: true
+    os:
+      enabled: true
+    env:
+      enabled: true
+  server:
+    port: 8080
+#    port: 9292
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+#      show-details: always
+      show-components: always
+# 엔드포인트 노출
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+payment:
+  kakao:
+    secret_key_dev : "DEVEC2152904951CB5CF3C5BEEBB3C84B6AD6F26"
+
+host: "http://localhost:8080"
+
+jwt:
+  # CLI 명령어 - openssl rand -base64 64 로 생성된 값
+  secret: fMRb9kle/ImDQ7wB8+XPnuVH15M6xp60jKS7/mF7dNMFEvt9kNe4WioJfsHT6J6F4bynR8rqAR2Z8zYboQSG+A==
+
+info:
+  app:
+    name: hello-actuator
+    company: objects
+
+# 톰캣 정보 추가
+server:
+  tomcat:
+    mbeanregistry:
+      enabled: true
+
+springdoc:
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    url: /docs/openapi3.yaml
+    path: /
+    disable-swagger-default-url: true
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: test
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  sql:
+    init:
+      mode: always
+      platform: h2
+
+  datasource:
+    url: jdbc:h2:mem:~/Marketbridge
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+
+  h2:
+    console:
+      enabled: true
+
+logging:
+  level:
+    org.hibernate.sql: debug
+  logback:
+    rollingpolicy:
+      max-history: 7 #7개 쌓이면 삭제
+      max-file-size: 10MB #파일 한개당 최대 사이즈
+      total-size-cap: 1GB #모든 로그 파일 사이즈
+      clean-history-on-start: true #서버 껐다 킬때마다 이전 로그 파일 삭제
+
+  #   [타임스탬프][쓰레드명][UUID][로깅레벨][메시지]
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS, Asia/Seoul}){green} %clr([%20.20thread]){cyan} %clr([%X{traceId}]){magenta} %clr(%-5level) %clr(-){faint} %msg%n"
+
+payment:
+  kakao:
+    secret_key_dev : "DEVEC2152904951CB5CF3C5BEEBB3C84B6AD6F26"
+
+host: "http://localhost:8080"
+
+jwt:
+  secret: fMRb9kle/ImDQ7wB8+XPnuVH15M6xp60jKS7/mF7dNMFEvt9kNe4WioJfsHT6J6F4bynR8rqAR2Z8zYboQSG+A==
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        format_sql: false
+        default_batch_fetch_size: 100
+
+logging:
+  level:
+    org.hibernate.sql: info
+  file:
+    path:
+      all: /app/logs/all
+      info: /app/logs/info
+      warn: /app/logs/warn
+      error: /app/logs/error
+  logback:
+    rollingpolicy:
+      max-history: 7 #7개 쌓이면 삭제
+      max-file-size: 10MB #파일 한개당 최대 사이즈
+      total-size-cap: 1GB #모든 로그 파일 사이즈
+      clean-history-on-start: true #서버 껐다 킬때마다 이전 로그 파일 삭제
+
+  #   [타임스탬프][쓰레드명][UUID][로깅레벨][메시지]
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS, Asia/Seoul}){green} %clr([%20.20thread]){cyan} %clr([%X{traceId}]){magenta} %clr(%-5level) %clr(-){faint} %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS, Asia/Seoul} [%20.20thread] [%X{traceId}] %-5level - %msg%n"
+
+payment:
+  kakao:
+    secret_key_dev : "DEVEC2152904951CB5CF3C5BEEBB3C84B6AD6F26"
+
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: false
+
+management:
+  endpoint:
+    health:
+      show-components: always
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+server:
+  tomcat:
+    mbeanregistry:
+      enabled: true
+
+springdoc:
+  default-consumes-media-type: application/json;charset=UTF-8
+  default-produces-media-type: application/json;charset=UTF-8
+  swagger-ui:
+    url: /docs/openapi3.yaml
+    path: /
+    disable-swagger-default-url: true

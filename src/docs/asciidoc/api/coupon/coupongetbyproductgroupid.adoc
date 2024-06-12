@@ -1,0 +1,8 @@
+=== *상품 그룹에 등록된 모든 쿠폰 조회*
+
+.*HTTP Request*
+include::{snippets}/coupon-get-by-productGroupId/http-request.adoc[]
+
+
+.*HTTP Response*
+include::{snippets}/coupon-get-by-productGroupId/response-body.adoc[]

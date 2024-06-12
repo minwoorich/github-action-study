@@ -1,0 +1,9 @@
+==== *리뷰 좋아요 등록 또는 삭제*
+
+.*HTTP Request*
+include::{snippets}/review-upsert-review-like/http-request.adoc[]
+include::{snippets}/review-upsert-review-like/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/review-upsert-review-like/http-response.adoc[]
+include::{snippets}/review-upsert-review-like/response-fields.adoc[]

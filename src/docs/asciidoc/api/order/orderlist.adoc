@@ -1,0 +1,19 @@
+==== *주문 조회*
+
+.*진입점1 - '메인' 페이지에서*
+image:../image/order/select/req_orders_list_1.png[]
+
+.*진입점2 - '마이' 페이지에서*
+image:../image/order/select/req_orders_list_2.png[]
+
+.*반환*
+image:../image/order/select/resp_order_list.png[]
+
+.*HTTP Request*
+include::{snippets}/order-list/http-request.adoc[]
+include::{snippets}/order-list/query-parameters.adoc[]
+
+
+.*HTTP Response*
+include::{snippets}/order-list/http-response.adoc[]
+include::{snippets}/order-list/response-fields.adoc[]

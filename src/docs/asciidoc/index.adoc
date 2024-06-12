@@ -1,0 +1,287 @@
+ifndef::snippets[]
+:snippets: ../../build/generated-snippets
+endif::[]
+= *MarketBridge REST API 문서*
+:stylesheet: css/custom-css-style.css
+:sectnums:
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 3
+:sectlinks:
+:hardbreaks:
+Doc Writer <Team Objects Backend>
+v0.1, 2024-02-14
+
+== *회원*
+
+include::api/member/auth/emailcheck.adoc[]
+{empty}
+{empty}
+
+=== *인증*
+include::api/member/auth/signup.adoc[]
+{empty}
+{empty}
+
+include::api/member/auth/signin.adoc[]
+{empty}
+{empty}
+
+include::api/member/auth/signout.adoc[]
+{empty}
+{empty}
+
+include::api/member/auth/reissue.adoc[]
+{empty}
+{empty}
+
+include::api/member/auth/authentication.adoc[]
+{empty}
+{empty}
+
+
+=== *아이디/비밀번호 찾기*
+include::api/member/account-info/memberEmailFind.adoc[]
+{empty}
+{empty}
+
+include::api/member/account-info/memberPasswordFind.adoc[]
+{empty}
+{empty}
+
+include::api/member/account-info/memberPasswordReset.adoc[]
+{empty}
+{empty}
+
+=== *개인정보수정*
+
+include::api/member/account-info/memberEmail.adoc[]
+{empty}
+{empty}
+
+include::api/member/account-info/getMemberAccountInfo.adoc[]
+{empty}
+{empty}
+
+include::api/member/account-info/patchMemberAccountInfo.adoc[]
+{empty}
+{empty}
+
+=== *주소*
+include::api/member/address/findAddress.adoc[]
+{empty}
+{empty}
+
+include::api/member/address/addAddress.adoc[]
+{empty}
+{empty}
+
+include::api/member/address/updateAddress.adoc[]
+{empty}
+{empty}
+
+include::api/member/address/deleteAddress.adoc[]
+{empty}
+{empty}
+
+=== *위시리스트*
+include::api/member/wishlist/checkWishlist.adoc[]
+{empty}
+{empty}
+
+include::api/member/wishlist/findWishlist.adoc[]
+{empty}
+{empty}
+
+include::api/member/wishlist/addWishlist.adoc[]
+{empty}
+{empty}
+
+include::api/member/wishlist/deleteWishlist.adoc[]
+{empty}
+{empty}
+{empty}
+{empty}
+
+=== *멤버십*
+include::api/member/membership/kakaoPaySubsReady.adoc[]
+{empty}
+{empty}
+
+include::api/member/membership/kakaoPaySubsApproved.adoc[]
+{empty}
+{empty}
+
+=== *회원 쿠폰*
+include::api/member/membercoupon/findmembercoupon.adoc[]
+{empty}
+{empty}
+
+include::api/member/membercoupon/registermembercoupon.adoc[]
+{empty}
+{empty}
+
+== *상품*
+include::api/product/productCreate.adoc[]
+{empty}
+{empty}
+
+=== *상품 조회*
+include::api/product/productSearchByCategory.adoc[]
+{empty}
+{empty}
+
+include::api/product/productGetDetailInfo.adoc[]
+{empty}
+{empty}
+
+== *카테고리*
+include::api/category/categoryGetTotaIinfo.adoc[]
+{empty}
+{empty}
+
+== *리뷰*
+include::api/review/review-get-surveys.adoc[]
+{empty}
+{empty}
+
+include::api/review/review-create.adoc[]
+{empty}
+{empty}
+
+include::api/review/review-update.adoc[]
+{empty}
+{empty}
+
+include::api/review/review-delete.adoc[]
+{empty}
+{empty}
+
+include::api/review/review-get-single-review.adoc[]
+{empty}
+{empty}
+
+include::api/review/reviews-count-of-product.adoc[]
+{empty}
+{empty}
+
+include::api/review/reviews-of-product.adoc[]
+{empty}
+{empty}
+
+include::api/review/review-count-review-likes.adoc[]
+{empty}
+{empty}
+
+include::api/review/review-upsert-review-like.adoc[]
+{empty}
+{empty}
+
+include::api/review/reviews-count-of-member-unwritten.adoc[]
+{empty}
+{empty}
+
+include::api/review/reviews-of-member-unwritten.adoc[]
+{empty}
+{empty}
+
+include::api/review/reviews-count-of-member.adoc[]
+{empty}
+{empty}
+
+include::api/review/reviews-of-member.adoc[]
+{empty}
+{empty}
+
+== *주문*
+=== *주문서/결제*
+
+include::api/order/ordercreate.adoc[]
+{empty}
+{empty}
+
+include::api/payment/paymentcreate.adoc[]
+{empty}
+{empty}
+
+include::api/payment/paymentcancel.adoc[]
+{empty}
+{empty}
+
+include::api/order/orderlist.adoc[]
+{empty}
+{empty}
+
+include::api/order/orderdetaillist.adoc[]
+{empty}
+{empty}
+
+=== *반품/취소*
+include::api/order/ordercancelrequest.adoc[]
+{empty}
+{empty}
+
+// include::api/order/ordercancelreturn.adoc[]
+// {empty}
+// {empty}
+
+include::api/order/ordercanceldetail.adoc[]
+{empty}
+{empty}
+
+include::api/order/orderconfirmcancel.adoc[]
+{empty}
+{empty}
+
+include::api/order/orderreturnrequest.adoc[]
+{empty}
+{empty}
+
+include::api/order/orderreturndetail.adoc[]
+{empty}
+{empty}
+
+include::api/order/orderconfirmreturn.adoc[]
+{empty}
+{empty}
+
+include::api/order/ordercancelreturnlist.adoc[]
+{empty}
+{empty}
+
+== *장바구니*
+include::api/cart/cartadd.adoc[]
+{empty}
+{empty}
+
+include::api/cart/cartlist.adoc[]
+{empty}
+{empty}
+
+include::api/cart/cartcount.adoc[]
+{empty}
+{empty}
+
+include::api/cart/cartdelete.adoc[]
+{empty}
+{empty}
+
+include::api/cart/cartupdate.adoc[]
+{empty}
+{empty}
+
+== *쿠폰*
+include::api/coupon/coupon-get-by-couponid.adoc[]
+{empty}
+{empty}
+
+include::api/coupon/coupongetbyproductgroupid.adoc[]
+{empty}
+{empty}
+
+== *공통 에러 응답*
+include::api/errors/invalidinput.adoc[]
+include::api/errors/invaliduri.adoc[]
+include::api/errors/internalserver.adoc[]

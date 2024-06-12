@@ -1,0 +1,12 @@
+==== *아이디(이메일) 찾기*
+
+.*HTTP Request*
+include::{snippets}/member-email-find/http-request.adoc[]
+include::{snippets}/member-email-find/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/member-email-find/http-response.adoc[]
+include::{snippets}/member-email-find/response-fields.adoc[]
+
+.*HTTP Error Response*
+include::{snippets}/member-email-find-err/http-response.adoc[]

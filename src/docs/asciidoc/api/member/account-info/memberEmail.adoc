@@ -1,0 +1,15 @@
+==== *회원정보확인-email*
+
+image:../image/memberconfirm.png[]
+
+[text]
+----
+- 개인정보수정시 로그인 정보를 확인하여 email을 반환
+----
+
+.*HTTP Request*
+include::{snippets}/member-account-email/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/member-account-email/http-response.adoc[]
+include::{snippets}/member-account-email/response-fields.adoc[]

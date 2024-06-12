@@ -1,0 +1,11 @@
+==== *이메일 중복 체크*
+
+image:../image/emailcheck.png[]
+
+.*HTTP Request*
+include::{snippets}/member-email-check/http-request.adoc[]
+include::{snippets}/member-email-check/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/member-email-check/http-response.adoc[]
+include::{snippets}/member-email-check/response-fields.adoc[]

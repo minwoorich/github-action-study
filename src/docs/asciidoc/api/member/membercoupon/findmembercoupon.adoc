@@ -1,0 +1,7 @@
+==== *회원이 가지고 있는 쿠폰 조회하기*
+
+.*HTTP Request*
+include::{snippets}/member-find-coupon/http-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/member-find-coupon/http-response.adoc[]

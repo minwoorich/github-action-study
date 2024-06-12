@@ -1,0 +1,9 @@
+==== *새로운 주소 추가*
+
+.*HTTP Request*
+include::{snippets}/add-address/http-request.adoc[]
+include::{snippets}/add-address/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/add-address/http-response.adoc[]
+include::{snippets}/add-address/response-fields.adoc[]

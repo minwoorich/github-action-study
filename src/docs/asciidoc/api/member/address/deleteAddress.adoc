@@ -1,0 +1,9 @@
+==== *등록된 주소 삭제*
+
+.*HTTP Request*
+include::{snippets}/delete-address/http-request.adoc[]
+include::{snippets}/delete-address/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/delete-address/http-response.adoc[]
+include::{snippets}/delete-address/response-fields.adoc[]

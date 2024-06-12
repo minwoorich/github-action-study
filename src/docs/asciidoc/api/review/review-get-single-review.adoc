@@ -1,0 +1,9 @@
+==== *리뷰 단건 조회*
+
+.*HTTP Request*
+include::{snippets}/review-get-single-review/http-request.adoc[]
+include::{snippets}/review-get-single-review/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/review-get-single-review/http-response.adoc[]
+include::{snippets}/review-get-single-review/response-fields.adoc[]

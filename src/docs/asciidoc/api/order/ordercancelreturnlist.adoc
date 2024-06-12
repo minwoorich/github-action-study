@@ -1,0 +1,9 @@
+==== 반품/취소 주문 리스트
+
+.*HTTP Request*
+include::{snippets}/order-cancel-return-list/http-request.adoc[]
+include::{snippets}/order-cancel-return-list/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/order-cancel-return-list/http-response.adoc[]
+include::{snippets}/order-cancel-return-list/response-fields.adoc[]

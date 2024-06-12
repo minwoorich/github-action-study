@@ -1,0 +1,9 @@
+==== *리뷰 수정*
+
+.*HTTP Request*
+include::{snippets}/review-update/http-request.adoc[]
+include::{snippets}/review-update/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/review-update/http-response.adoc[]
+include::{snippets}/review-update/response-fields.adoc[]

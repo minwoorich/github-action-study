@@ -1,0 +1,13 @@
+=== *장바구니 조회*
+
+.*반환*
+image:../image/cart/resp_cart_list.png[]
+
+.*HTTP Request*
+include::{snippets}/cart-list/http-request.adoc[]
+include::{snippets}/cart-list/query-parameters.adoc[]
+
+
+.*HTTP Response*
+include::{snippets}/cart-list/http-response.adoc[]
+include::{snippets}/cart-list/response-fields.adoc[]

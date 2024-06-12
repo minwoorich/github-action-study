@@ -1,0 +1,9 @@
+==== *리뷰서베이 선택창 조회*
+
+.*HTTP Request*
+include::{snippets}/review-get-surveys/http-request.adoc[]
+include::{snippets}/review-get-surveys/httpie-request.adoc[]
+
+.*HTTP Response*
+include::{snippets}/review-update/http-response.adoc[]
+include::{snippets}/review-update/response-fields.adoc[]

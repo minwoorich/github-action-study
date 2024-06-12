@@ -1,0 +1,51 @@
+name: MarketBridge CI/CD                       #워크플로우의 이름을 지정.
+
+on:                                            #트리거를 설정.
+  push:
+    branches:
+      - main
+
+jobs:                                          #파이프라인이 실제로 실행하는 작업인 워크플로우 작성 공간
+  build:
+    runs-on: ubuntu-22.04                      # 작업이 실제로 실행될 러너를 지정
+    steps:                                     # 작업에 해당하는 Step을 여러개 지정할 수 있음.
+      - name: checkout                         # 소스 코드를 가져오는 단계
+        uses: actions/checkout@v4              # uses에 액션을 사용해서 이뤄짐
+
+      - name: Set up JDK 17                    # JDK 17을 설정하는 단계
+        uses: actions/Setup-java@v4            # actions/Setup-java@v4 액션을 사용
+        with:
+          java-version: '17'
+          distribution: 'corretto'
+
+      - name: Add to application.yml           # application.yml 파일에 보안 정보를 추가하는 단계
+        run: |                                 # secrets에 저장된 값들을 해당 파일에 추가
+          cd ./src/main/resources
+          cat << EOF >> ./application.yml
+          
+          ${{secrets.JWT_SECRET}}
+          EOF
+        shell: bash                             # 실행될 명령어의 쉘(shell)을 지정. 여기서는 Bash 쉘을 사용하겠다는 의미
+
+      - name: Build with Gradle                 # Gradle로 빌드하는 단계.
+        run: |                                  # 프로젝트를 클린하고 빌드
+          chmod +x gradlew
+          ./gradlew clean build
+      - name: web docker build and push         # Docker 이미지를 빌드하고 레지스트리에 푸시하는 단계
+        run: |                                  # buildx 멀티 플랫폼 빌드 
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker buildx build --platform linux/arm64/v8 -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:0.1 . 
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:0.1
+      - name: execute remote ssh & deploy server  # 원격 SSH를 통해 서버에 접속하여 Docker 이미지를 풀고 컨테이너를 실행하는 단계
+        uses: appleboy/ssh-action@master          # appleboy/ssh-action@master 액션을 사용
+        with:                                     # host, username, key, passphrase: SSH 연결에 필요한 정보를 설정
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          #          port: 22
+          script: |                                # 서버에서 실행될 스크립트를 정의. Docker 이미지를 풀고 컨테이너를 실행하는 명령어들을 포함
+            docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:0.1
+            cd ~
+            docker-compose up -d
+            docker image prune -f
+            docker ps -a

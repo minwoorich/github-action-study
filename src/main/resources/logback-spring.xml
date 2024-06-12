@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <!--로그 설정-->
+    <springProfile name="local, dev, test">
+        <property resource="application.yml" />
+    </springProfile>
+    <timestamp key ="today" datePattern="yyyy-MM-dd"/>
+
+    <!-- log 변수 값 설정 -->
+    <springProperty name="ALL_LOG_PATH" source= "logging.file.path.all" />
+    <springProperty name="INFO_LOG_PATH" source= "logging.file.path.info" />
+    <springProperty name="WARN_LOG_PATH" source= "logging.file.path.warn" />
+    <springProperty name="ERROR_LOG_PATH" source= "logging.file.path.error" />
+    <springProperty name="LOG_MAX_HISTORY" source= "logging.logback.rollingpolicy.max-history" />
+    <springProperty name="LOG_MAX_FILE_SIZE" source= "logging.logback.rollingpolicy.max-file-size" />
+    <springProperty name="LOG_TOTAL_SIZE_CAP" source= "logging.logback.rollingpolicy.total-size-cap" />
+    <springProperty name="CLEAN_HISTORY_ON_START" source= "logging.logback.rollingpolicy.clean-history-on-start" />
+    <springProperty name="CONSOLE_LOG_PATTERN" source= "logging.pattern.console" />
+    <springProperty name="FILE_LOG_PATTERN" source= "logging.pattern.file" />
+
+    <!-- 색-->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+
+    <!-- 콘솔(CONSOLE) -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>${CONSOLE_LOG_PATTERN}</Pattern>
+        </layout>
+    </appender>
+
+    <!-- 모든 레벨 파일(FILE) -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--     log 기록할 파일 위치 설정 -->
+        <file>${ALL_LOG_PATH}/${today}.log</file>
+        <!--     log 기록 타입 인코딩 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${ALL_LOG_PATH}/%d{yyyy-MM-dd, ${logback.timezone:-Asia/Seoul}}_%i.log</fileNamePattern>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <cleanHistoryOnStart>${CLEAN_HISTORY_ON_START}</cleanHistoryOnStart>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- INFO 레벨 파일(FILE) -->
+    <appender name="INFO_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--INFO 레벨만 필터링-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <!--     log 기록할 파일 위치 설정 -->
+        <file>${INFO_LOG_PATH}/${today}.log</file>
+        <!--     log 기록 타입 인코딩 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${INFO_LOG_PATH}/%d{yyyy-MM-dd, ${logback.timezone:-Asia/Seoul}}_%i.log</fileNamePattern>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <cleanHistoryOnStart>${CLEAN_HISTORY_ON_START}</cleanHistoryOnStart>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- WARN 레벨 파일(FILE) -->
+    <appender name="WARN_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--WARN 레벨만 필터링-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <!--     log 기록할 파일 위치 설정 -->
+        <file>${WARN_LOG_PATH}/${today}.log</file>
+        <!--     log 기록 타입 인코딩 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${WARN_LOG_PATH}/%d{yyyy-MM-dd, ${logback.timezone:-Asia/Seoul}}_%i.log</fileNamePattern>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <cleanHistoryOnStart>${CLEAN_HISTORY_ON_START}</cleanHistoryOnStart>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <!-- ERROR 레벨 파일(FILE) -->
+    <appender name="ERROR_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--ERROR 레벨만 필터링-->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <!--     log 기록할 파일 위치 설정 -->
+        <file>${ERROR_LOG_PATH}/${today}.log</file>
+        <!--     log 기록 타입 인코딩 -->
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${ERROR_LOG_PATH}/%d{yyyy-MM-dd, ${logback.timezone:-Asia/Seoul}}_%i.log</fileNamePattern>
+            <maxHistory>${LOG_MAX_HISTORY}</maxHistory>
+            <cleanHistoryOnStart>${CLEAN_HISTORY_ON_START}</cleanHistoryOnStart>
+            <totalSizeCap>${LOG_TOTAL_SIZE_CAP}</totalSizeCap>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>${LOG_MAX_FILE_SIZE}</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+    </appender>
+
+    <springProfile name="local">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="INFO_FILE"/>
+            <appender-ref ref="WARN_FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="dev">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="INFO_FILE"/>
+            <appender-ref ref="WARN_FILE"/>
+            <appender-ref ref="ERROR_FILE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="test">
+        <root level="info">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+</configuration>

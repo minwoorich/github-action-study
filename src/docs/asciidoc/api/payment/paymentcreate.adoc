@@ -1,0 +1,16 @@
+==== *결제 생성*
+
+.*진입점*
+image:../image/payment/req_payment_create.png[]
+
+.*반환*
+image:../image/payment/resp_payment_create.png[]
+
+.*HTTP Request*
+include::{snippets}/payment-create/http-request.adoc[]
+include::{snippets}/payment-create/query-parameters.adoc[]
+include::{snippets}/payment-create/path-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/payment-create/http-response.adoc[]
+include::{snippets}/payment-create/response-fields.adoc[]

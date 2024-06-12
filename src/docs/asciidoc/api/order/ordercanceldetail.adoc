@@ -1,0 +1,9 @@
+==== *주문 취소 상세 조회*
+
+.*HTTP Request*
+include::{snippets}/order-cancel-detail/http-request.adoc[]
+include::{snippets}/order-cancel-detail/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/order-cancel-detail/http-response.adoc[]
+include::{snippets}/order-cancel-detail/response-fields.adoc[]

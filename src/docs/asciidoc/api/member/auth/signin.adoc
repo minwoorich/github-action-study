@@ -1,0 +1,46 @@
+==== *로그 인*
+
+image:../image/signin.png[]
+
+.*HTTP Request*
+include::{snippets}/auth-sign-in/http-request.adoc[]
+include::{snippets}/auth-sign-in/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/auth-sign-in/http-response.adoc[]
+include::{snippets}/auth-sign-in/response-fields.adoc[]
+
+.*HTTP Error Response*
+- 가입되지 않은 이메일이거나 형식에 안맞는 경우
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 200
+
+{
+  "code" : 401,
+  "status" : "Unauthorized",
+  "path" : "POST/auth/sign-in",
+  "errorCode" : "INTERNAL_SECURITY_ERROR",
+  "message" : "자격 증명에 실패하였습니다.",
+  "timestamp" : "2024-02-28T11:54:24.570537"
+}
+----
+
+- 비밀번호가 틀렸을 경우
+[source,http,options="nowrap"]
+----
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+Content-Length: 200
+
+{
+  "code": 401,
+  "status": "Unauthorized",
+  "path": "/auth/sign-in",
+  "errorCode": "BAD_CREDENTIALS_ERROR",
+  "message": "로그인 정보가 일치하지 않습니다.",
+  "timeStamp": "2024-02-28T13:49:22.567877"
+}
+----

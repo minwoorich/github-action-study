@@ -1,0 +1,17 @@
+==== *회원정보확인-비밀번호*
+
+[text]
+----
+- 비밀번호가 일치할 경우 멤버의 회원 정보를 반환함.
+----
+
+.*HTTP Request*
+include::{snippets}/get-member-account-info/http-request.adoc[]
+include::{snippets}/get-member-account-info/query-parameters.adoc[]
+
+.*HTTP Response*
+include::{snippets}/get-member-account-info/http-response.adoc[]
+include::{snippets}/get-member-account-info/response-fields.adoc[]
+
+.*HTTP Error Response*
+include::{snippets}/get-member-account-info-pw-err/http-response.adoc[]

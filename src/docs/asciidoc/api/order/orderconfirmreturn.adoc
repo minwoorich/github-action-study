@@ -1,0 +1,9 @@
+==== *반품 취소*
+
+.*HTTP Request*
+include::{snippets}/order-confirm-return/http-request.adoc[]
+include::{snippets}/order-confirm-return/request-fields.adoc[]
+
+.*HTTP Response*
+include::{snippets}/order-confirm-return/http-response.adoc[]
+include::{snippets}/order-confirm-return/response-fields.adoc[]
