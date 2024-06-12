@@ -12,8 +12,10 @@ public class KakaoPayApproveRequest {
 
     private String cid;
     private String tid;
+
     @JsonProperty("partner_order_id")
     private String partnerOrderId;
+
     @JsonProperty("partner_user_id")
     private String partnerUserId;
 
