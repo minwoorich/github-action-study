@@ -44,7 +44,7 @@ jobs:                                          #파이프라인이 실제로 실
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           #          port: 22
           script: |                                # 서버에서 실행될 스크립트를 정의. Docker 이미지를 풀고 컨테이너를 실행하는 명령어들을 포함
-            docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:0.1
+            docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:1.0.0
             cd ~
             docker-compose up -d
             docker image prune -f
