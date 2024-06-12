@@ -35,7 +35,7 @@ jobs:                                          #파이프라인이 실제로 실
         run: |                                  # buildx 멀티 플랫폼 빌드 
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker buildx build --platform linux/arm64/v8 -t ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:1.0.0
-          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:0.1
+          docker push ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:1.0.0
       - name: execute remote ssh & deploy server  # 원격 SSH를 통해 서버에 접속하여 Docker 이미지를 풀고 컨테이너를 실행하는 단계
         uses: appleboy/ssh-action@master          # appleboy/ssh-action@master 액션을 사용
         with:                                     # host, username, key, passphrase: SSH 연결에 필요한 정보를 설정
